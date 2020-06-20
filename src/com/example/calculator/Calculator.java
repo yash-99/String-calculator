@@ -25,7 +25,7 @@ public class Calculator extends Exception {
 					int num = Integer.parseInt(str_arr[i]);
 					if (num < 0) {
 						list.add(num);
-					} else {
+					} else if(num<1000){
 						sum = sum + num;
 					}
 				}

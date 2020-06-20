@@ -37,4 +37,9 @@ public class TestCalculator {
 	public void testNegatives() throws Exception {
 		assertEquals(0, Calculator.add("//;\n-1;-2"));
 	}
+	
+	@Test
+	public void greaterThan1000() throws Exception {
+		assertEquals(0, Calculator.add("1001,2"));
+	}
 }
