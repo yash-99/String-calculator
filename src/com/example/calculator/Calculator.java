@@ -6,7 +6,7 @@ public class Calculator {
 
 		int sum = 0;
 
-		if (numbers.contains(",")) {
+		if (numbers.contains(",") || numbers.length()>0) {
 
 			String[] num_arr = numbers.split(",");
 			int var1 = Integer.parseInt(num_arr[0]);
