@@ -10,28 +10,29 @@ public class Calculator extends Exception {
 
 		int sum = 0;
 
-		if (numbers.length() > 0 && numbers.startsWith("//")) {
+		if (numbers.length() > 0) {
 
-			Pattern pattern = Pattern.compile("//(.)\n(.*)");
+			numbers=numbers.startsWith("//")?numbers.substring(2):numbers;
+			Pattern pattern = Pattern.compile("(.)\n(.*)");
 			Matcher matcher = pattern.matcher(numbers);
 			matcher.matches();
-
+			String group1 = matcher.group(1);
 			String group2 = matcher.group(2);
 
-			String[] str_arr = group2.split(";"); // ";|\n"
+			String[] str_arr = group2.split(group1); // ";|\n"
 			ArrayList<Integer> list = new ArrayList<Integer>();
 			try {
 				for (int i = 0; i < str_arr.length; i++) {
 					int num = Integer.parseInt(str_arr[i]);
 					if (num < 0) {
 						list.add(num);
-					} else if(num<1000){
+					} else if (num < 1000) {
 						sum = sum + num;
 					}
 				}
-				
-				if(list.size()>0)
-				throw new Exception("negatives not allowed " + list);
+
+				if (list.size() > 0)
+					throw new Exception("negatives not allowed " + list);
 			} catch (Exception e) {
 				// TODO: handle exception
 				System.out.println(e.getMessage());
