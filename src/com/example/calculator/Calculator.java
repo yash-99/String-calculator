@@ -12,13 +12,13 @@ public class Calculator extends Exception {
 
 		if (numbers.length() > 0) {
 
-			Pattern pattern = Pattern.compile("//(\\[.\\])(\\[.\\])\n(.*)");
+			Pattern pattern = Pattern.compile("//(\\[.*\\])(\\[.*\\])\n(.*)");
 			Matcher matcher = pattern.matcher(numbers);
 			matcher.matches();
-			String group1 = matcher.group(1);
-			//group1=group1.substring(1,group1.length()-1);
+			String group1=matcher.group(1);
 			String group2 = matcher.group(2)+"|"+group1;
-			String group3 = matcher.group(3);
+			String group3 =matcher.group(3);
+			
 
 			String[] str_arr = group3.split(group2); // ";|\n"
 			ArrayList<Integer> list = new ArrayList<Integer>();
