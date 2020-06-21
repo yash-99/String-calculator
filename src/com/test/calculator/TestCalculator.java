@@ -47,4 +47,9 @@ public class TestCalculator {
 	public void point7() throws Exception {
 		assertEquals(6, Calculator.add("//[***]\n1***2***3"));
 	}
+	
+	@Test
+	public void multipleDelimeters() throws Exception {
+		assertEquals(6, Calculator.add("//[*][%]\n1*2%3"));
+	}
 }

@@ -12,15 +12,15 @@ public class Calculator extends Exception {
 
 		if (numbers.length() > 0) {
 
-			//numbers=numbers.startsWith("//")?numbers.substring(2):numbers;
-			Pattern pattern = Pattern.compile("//(\\[.+\\])\n(.*)");
+			Pattern pattern = Pattern.compile("//(\\[.\\])(\\[.\\])\n(.*)");
 			Matcher matcher = pattern.matcher(numbers);
 			matcher.matches();
 			String group1 = matcher.group(1);
 			//group1=group1.substring(1,group1.length()-1);
-			String group2 = matcher.group(2);
+			String group2 = matcher.group(2)+"|"+group1;
+			String group3 = matcher.group(3);
 
-			String[] str_arr = group2.split(group1); // ";|\n"
+			String[] str_arr = group3.split(group2); // ";|\n"
 			ArrayList<Integer> list = new ArrayList<Integer>();
 			try {
 				for (int i = 0; i < str_arr.length; i++) {
